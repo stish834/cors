@@ -1,6 +1,6 @@
 <script>
   const req = new XMLHttpRequest();
-  req.open("GET", "https://acornsprod-dataplane.rudderstack.com/transform", true);
+  req.open("GET", "https://api.cnt.traveloka.com/en-id/v2/resource/content", true);
   req.onload = function() {
     if (req.status === 200) {
       const res = req.responseText;
